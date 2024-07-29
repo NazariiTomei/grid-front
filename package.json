@@ -1,0 +1,86 @@
+{
+  "name": "robolaunch",
+  "homepage": "https://robolaunch.cloud",
+  "version": "1.0.2",
+  "description": "Keycloak theme for robolaunch.cloud",
+  "author": "gokhangunduz",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/robolaunch/keycloak-theme"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "dev": "yarn build && keycloakify && sudo ./build_keycloak/start_keycloak_testing_container.sh",
+    "watch": "npx tailwindcss -i ./tailwind.css -o ./src/style.css --watch",
+    "build-keycloak-theme": "yarn build && keycloakify",
+    "eject-keycloak-page": "eject-keycloak-page",
+    "download-builtin-keycloak-theme": "download-builtin-keycloak-theme"
+  },
+  "keycloakify": {
+    "extraLoginPages": [
+      "my-extra-page-1.ftl",
+      "my-extra-page-2.ftl"
+    ],
+    "extraAccountPages": [
+      "my-extra-page-1.ftl",
+      "my-extra-page-2.ftl"
+    ]
+  },
+  "license": "MIT",
+  "keywords": [],
+  "dependencies": {
+    "animate.css": "^4.1.1",
+    "evt": "^2.4.15",
+    "jwt-decode": "^3.1.2",
+    "keycloak-js": "^21.0.1",
+    "keycloakify": "^7.0.2",
+    "powerhooks": "^0.26.7",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-particle-image": "^1.0.2",
+    "tsafe": "^1.6.0",
+    "yarn": "^1.22.22"
+  },
+  "devDependencies": {
+    "@types/node": "^15.3.1",
+    "@types/react": "18.0.9",
+    "@types/react-dom": "18.0.4",
+    "react-scripts": "5.0.1",
+    "tailwindcss": "^3.3.0",
+    "typescript": "~4.7.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "rules": {
+      "react-hooks/exhaustive-deps": "off",
+      "@typescript-eslint/no-redeclare": "off",
+      "no-labels": "off"
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
